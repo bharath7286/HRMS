@@ -1,7 +1,10 @@
 import os
 from dotenv import load_dotenv
 
-load_dotenv()  # This will load the environment variables from the .env file
+load_dotenv()  # Loads environment variables from .env file
+
+# Check if the environment variables are being loaded
+print("COGNITO_USERPOOL_ID:", os.environ.get('COGNITO_USERPOOL_ID'))
 
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY')
@@ -18,6 +21,4 @@ class Config:
     COGNITO_CLIENT_ID = os.environ.get('COGNITO_CLIENT_ID')
     COGNITO_CLIENT_SECRET = os.environ.get('COGNITO_CLIENT_SECRET')
     COGNITO_REGION = os.environ.get('COGNITO_REGION')
-
-
 
