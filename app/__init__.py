@@ -11,4 +11,5 @@ def create_app():
     app = Flask(__name__)
 
     # Update secret key if needed
-    root_dir = Path(__file__).paren
+    root_dir = Path(__file__).parent
+
