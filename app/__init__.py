@@ -6,6 +6,7 @@ import os
 from dotenv import load_dotenv, set_key
 from pathlib import Path
 from app.utils.db_setup import create_tables_and_bucket
+from flask_cognito import CognitoAuth  # Import CognitoAuth
 
 def create_app():
     app = Flask(__name__)
@@ -24,6 +25,9 @@ def create_app():
         set_key(env_path, 'SECRET_KEY', new_secret_key)
         
     app.config.from_object(Config)
+    
+    # Initialize Cognito
+    cognito = CognitoAuth(app)
     
     create_tables_and_bucket(app)
     
